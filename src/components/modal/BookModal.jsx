@@ -82,8 +82,10 @@ const BookModal = ({ book, onClose }) => {
             <label className="block text-sm font-medium">Publish Date</label>
             <input
               type="number"
-              minLength={4}
-              maxLength={4}
+{/*               minLength={4} */}
+{/*               maxLength={4} */}
+              min="1950"
+              max={new Date().getFullYear()}
               value={date}
               onChange={(e) => setDate(e.target.value)}
               required
