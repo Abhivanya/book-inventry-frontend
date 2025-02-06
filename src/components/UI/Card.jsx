@@ -29,8 +29,11 @@ const Card = ({ title, author, publishedYear, description, image, id }) => {
   };
 
   return (
-    <Link to={`/book/${id}`} className="rounded-md p-4">
-      <div className="relative max-w-sm rounded-2xl shadow-lg p-2 overflow-hidden hover:scale-105">
+    <Link
+      to={`/book/${id}`}
+      className="rounded-md p-4 min-w-[150px] min-h-[400px]"
+    >
+      <div className="relative max-w-sm rounded-2xl shadow-lg p-2 overflow-hidden hover:scale-105 h-full ">
         <div className="absolute -top-1 -right-1 flex justify-between gap-4 bg-yellow-600 px-2 py-2 rounded-md">
           <BiEdit
             size={25}

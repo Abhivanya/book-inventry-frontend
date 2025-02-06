@@ -16,21 +16,23 @@ const Navbar = () => {
 
   return (
     <div className="w-full bg-black text-white border-b">
-      <div className="flex items-center justify-between p-5 md:px-0 font-medium md:w-[80%] md:mx-auto ">
+      <div className="flex items-center justify-between p-3 md:p-5 md:px-0 font-medium md:w-[80%] md:mx-auto ">
         <Link to={"/"} className="w-40 text-xl font-bold text-yellow-600">
           <div className="flex  gap-3 items-center ">
-            <div>
+            <div className="w-1/2">
               <img
                 src={BookLogo}
                 className="h-full object-cover"
                 alt="book image"
               />
             </div>
-            <div className="leading-tight">Book Inventry</div>
+            <div className="leading-tight text-[18px] md:text-xl">
+              Book Inventry
+            </div>
           </div>
         </Link>
 
-        <div className="flex justify-between gap-8 items-center">
+        <div className="flex justify-between gap-2 md:gap-8 items-center">
           <ul className="hidden md:flex gap-8 text-sm font-semibold ">
             <NavLink to="/" className={setNavStyle}>
               Home
@@ -45,7 +47,7 @@ const Navbar = () => {
           </ul>
 
           <button
-            className="px-4 py-2 bg-yellow-800 rounded-md text-normal font-bold hover:bg-yellow-600"
+            className=" px-2 md:px-4 py-1 md:py-2 bg-yellow-800 rounded-md text-normal font-bold hover:bg-yellow-600"
             onClick={() => {
               setIsModalOpen(true);
               setEditingBook(null);

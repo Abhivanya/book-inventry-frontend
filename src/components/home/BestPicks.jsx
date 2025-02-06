@@ -9,7 +9,7 @@ const BestPicks = () => {
       <h1 className="text-3xl font-bold border-b border-black my-10">
         Latest Collection
       </h1>
-      <div className="w-full grid grid-cols-2 md:grid-cols-3  lg:grid-cols-4  gap-4 gap-y-6 border-2 rounded-md border-gray-600 py-4 px-2">
+      <div className="w-full grid grid-cols-1  md:grid-cols-2  lg:grid-cols-3  gap-4 gap-y-6 border-2 rounded-md border-gray-600 py-4 px-2">
         {books.length > 0 ? (
           books.map((book) => (
             <Card

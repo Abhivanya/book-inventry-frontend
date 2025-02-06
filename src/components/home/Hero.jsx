@@ -12,7 +12,7 @@ const Hero = () => {
       </div>
       <div className="absolute top-12 left-0 flex items-center  z-10 text-white w-full">
         <div className="flex flex-wrap flex-col gap-7 items-center mx-auto justify-center ">
-          <h1 className="text-2xl md:text-3xl text-yellow-600 font-bold ">
+          <h1 className="text-2xl text-center md:text-3xl text-yellow-600 font-bold ">
             The Book Lover's Dreamland Awaits!
           </h1>
           <p className=" text-center w-[80%]">
