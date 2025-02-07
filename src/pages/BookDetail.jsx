@@ -11,13 +11,30 @@ const BookDetail = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchBookDetails = () => {
+    const fetchBookDetails = async () => {
+      setLoading(true);
       try {
-        let res = books.find((item) => item._id === bookId);
-        if (res) {
-          setBook(res);
+        if (books.length > 0) {
+          const foundBook = books.find((item) => item._id === bookId);
+          if (foundBook) {
+            setBook(foundBook);
+          } else {
+            setError("Book Not Found");
+          }
         } else {
-          setError("Book Not Found");
+          // Fetch books from API as a fallback
+          const response = await fetch(
+            "https://book-inventry-api.onrender.com/api/books"
+          );
+          if (!response.ok) throw new Error("Failed to fetch books.");
+          const data = await response.json();
+
+          const foundBook = data.find((item) => item._id === bookId);
+          if (foundBook) {
+            setBook(foundBook);
+          } else {
+            setError("Book Not Found");
+          }
         }
       } catch (err) {
         setError("An error occurred while fetching the book details.");
@@ -26,18 +43,13 @@ const BookDetail = () => {
       }
     };
 
-    if (books.length > 0) {
-      fetchBookDetails();
-    } else {
-      setError("Books data is empty or unavailable.");
-      setLoading(false);
-    }
-  }, [books, bookId]);
+    fetchBookDetails();
+  }, [bookId, books]);
 
   if (loading) {
     return (
       <div className="min-h-screen flex justify-center items-center">
-        <span className="text-xl text-gray-600">Loading...</span>
+        <span className="text-xl text-gray-600">Loading book details...</span>
       </div>
     );
   }
